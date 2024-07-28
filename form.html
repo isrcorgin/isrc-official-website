@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>ISRC</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Favicons -->
+  <link href="img/ISRC-HEADER.png" rel="icon">
+  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="lib/animate/animate.min.css" rel="stylesheet">
+  <link href="lib/venobox/venobox.css" rel="stylesheet">
+  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link href="css/style.css" rel="stylesheet">
+
+
+  <style>
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background-color: #f4f7f6;
+      margin: 0;
+      padding: 0;
+    }
+
+    .form-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .card {
+      border: none;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      background: #f9f9f9;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-header {
+      background-color: #F82249;
+      color: #fff;
+      padding: 15px;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+      font-size: 1.25rem;
+      font-weight: bold;
+    }
+
+    .card-body {
+      padding: 20px;
+    }
+
+    .form-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .form-group {
+      flex: 1;
+      min-width: calc(50% - 1.5rem);
+      margin-bottom: 1rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 12px;
+      border-radius: 4px;
+      border: 1px solid #ddd;
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .checkbox-group {
+      display: flex;
+      align-items: center;
+      margin-top: 10px;
+    }
+
+    .checkbox-group input[type="checkbox"] {
+      margin-right: 0.5rem;
+      accent-color: #F82249;
+    }
+
+    .checkbox-label {
+      font-weight: bold;
+    }
+
+    .btn-submit, .btn-add-member, .btn-remove-member {
+      background-color: #F82249;
+      color: #fff;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1rem;
+      margin: 5px;
+    }
+
+    .btn-submit {
+      width: 100%;
+    }
+
+    .btn-remove-member {
+      background-color: #d9534f;
+    }
+
+    .button-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .required-field::after {
+  content: '*';
+  color: red;
+  margin-left: 0.2em;
+}
+    
+
+    @media (max-width: 767px) {
+      .form-row {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!--==========================
+    Header
+  ============================-->
+  <header id="header" class="header-fixed">
+    <div class="container">
+
+      <div id="logo" class="pull-left">
+        <!-- Uncomment below if you prefer to use a text logo -->
+        <!-- <h1><a href="#main">C<span>o</span>nf</a></h1>-->
+        <a href="#intro" class="scrollto"><img src="img/isrc.png" alt="" title=""></a>
+      </div>
+
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+          <li ><a href="index.html">Home</a></li>
+          <li ><a href="about-us.html">About us</a></li>
+          <li ><a href="event.html">Event</a></li>
+          <li ><a href="campus-ambassador.html"> Campus Ambassador</a></li>
+          <li  ><a href="certificate.html">Verify Certificate</a></li>
+          <li ><a href="login.html">Login</a></li>
+          <li class="buy-tickets"><a href="form.html">Register</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header><!-- #header -->
+ <br>
+ <br>
+ <br>
+ <br>
+ <main>
+  <section class="form-container">
+    <section id="speakers-details" class="wow fadeIn">
+      <div class="container">
+        <div class="section-header">
+          <h2>Team Registration</h2>
+        </div>
+        <div class="modal fade" id="previewModal" tabindex="-1" aria-labelledby="previewModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="previewModalLabel">Form Preview</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body" id="previewContent">
+                <!-- Preview content will be inserted here dynamically -->
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="confirmRegister">Confirm Registration</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- General Information Card -->
+        <div class="card">
+          <div class="card-header">General Information</div>
+          <div class="card-body">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="team-name" class="required-field">Team Name</label>
+                <input type="text" id="team-name" placeholder="Enter team name" required>
+              </div>
+              <div class="form-group">
+                <label for="country" class="required-field">Country</label>
+                <input type="text" id="country" placeholder="Enter country" required>
+              </div>
+            </div>
+          </div>
+        </div>
+<!-- Competition Topic Card -->
+<div class="card">
+  <div class="card-header">Select Competition Topic</div>
+  <div class="card-body">
+    <div class="form-row">
+      <div class="form-group">
+        <label for="competition-topic" class="required-field">Competition Topic</label>
+        <select id="competition-topic" class="form-control" required>
+          <option value="">Select your topic</option>
+          <optgroup label="5th to 8th Grade">
+            <option value="path-following-5-8">Path Following</option>
+            <option value="water-boat-5-8">Water Boat</option>
+          </optgroup>
+          <optgroup label="9th to 12th Grade">
+            <option value="path-following-9-12">Path Following</option>
+            <option value="maze-solver-9-12">Maze Solver</option>
+          </optgroup>
+          <optgroup label="1st Year Onward">
+            <option value="path-following-1st-year">Path Following</option>
+            <option value="line-following-1st-year">Line Following</option>
+            <option value="drone-1st-year">Drone</option>
+          </optgroup>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <!-- Mentor/Coach Details Card -->
+        <div class="card">
+          <div class="card-header">Mentor/Coach Details</div>
+          <div class="card-body">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="coach-name" class="required-field">Name</label>
+                <input type="text" id="coach-name" placeholder="Enter mentor/coach name" required>
+              </div>
+              <div class="form-group">
+                <label for="coach-age" class="required-field">Age</label>
+                <input type="number" id="coach-age" placeholder="Enter age" required>
+              </div>
+              <div class="form-group">
+                <label for="coach-email" class="required-field">Email</label>
+                <input type="email" id="coach-email" placeholder="Enter email" required>
+              </div>
+              <div class="form-group">
+                <label for="coach-phone" class="required-field">Phone Number</label>
+                <input type="tel" id="coach-phone" placeholder="Enter phone number" required>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Team Details Card -->
+        <div class="card">
+          <div class="card-header">Team Details</div>
+          <div class="card-body">
+            <div id="team-members-container">
+              <div class="form-row team-member" id="member1">
+                <div class="form-group">
+                  <label for="member1-name" class="required-field">Member 1 Name</label>
+                  <input type="text" id="member1-name" placeholder="Enter name" required>
+                </div>
+                <div class="form-group">
+                  <label for="member1-age" class="required-field">Member 1 Age</label>
+                  <input type="number" id="member1-age" placeholder="Enter age" required>
+                </div>
+                <div class="form-group">
+                  <label for="member1-email" class="required-field">Member 1 Email</label>
+                  <input type="email" id="member1-email" placeholder="Enter email" required>
+                </div>
+                <div class="form-group">
+                  <label for="member1-phone" class="required-field">Member 1 Phone Number</label>
+                  <input type="tel" id="member1-phone" placeholder="Enter phone number" required>
+                </div>
+                <div class="form-group checkbox-group">
+                  <label for="member1-captain" class="checkbox-label">Captain</label>
+                  <input type="checkbox" id="member1-captain" class="captain-checkbox" onchange="ensureSingleCaptain('member1')">
+                </div>
+              </div>
+            </div>
+            <div class="button-container">
+              <button type="button" class="btn-add-member" onclick="addTeamMember()">Add Team Member</button>
+              <button type="button" class="btn-remove-member" onclick="removeTeamMember()" style="display: none;">Remove Team Member</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Terms and Conditions -->
+        <div class="text-center">
+          <div class="checkbox-group">
+            <input type="checkbox" id="terms-conditions" required>
+            <label for="terms-conditions">I agree to the <a href="terms.html" style="color: #F82249;">terms and conditions</a></label>
+          </div>
+          <button type="submit" class="btn-submit">Register</button>
+        </div>
+      </div>
+    </section>
+  </section>
+</main>
+
+<br><br>
+  <!--==========================
+    Footer
+  ============================-->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-info">
+            <img src="img/isrc.png" alt="TheEvenet">
+            <p>ISRC (International STEM & Robotic Championship) fosters innovation in STEM education and robotics through competitions and hands-on activities. Join us to inspire and empower future tech leaders.</p>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="fa fa-angle-right"></i> <a href="index.html">Home</a></li>
+              <li><i class="fa fa-angle-right"></i> <a href="event.html">Event</a></li>
+              <li><i class="fa fa-angle-right"></i> <a href="refund.html">Refund Policy</a></li>
+              <li><i class="fa fa-angle-right"></i> <a href="create.html">Sing in</a></li>
+             
+              <li><i class="fa fa-angle-right"></i> <a href="privacy.html">Privacy policy</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="fa fa-angle-right"></i> <a href="about-us.html">About</a></li>
+              <li><i class="fa fa-angle-right"></i> <a href="campus-ambassador.html"></a>Campus Ambassador</li>
+             
+              <li><i class="fa fa-angle-right"></i> <a href="form.html">Register Team</a></li>
+              <li><i class="fa fa-angle-right"></i> <a href="login.html"></a>Sing up</li>
+              <li><i class="fa fa-angle-right"></i> <a href="terms.html">Terms of service</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h4>Contact Us</h4>
+            <p>
+              <strong>Head office:- </strong> Mumbai, India.<br>
+               <strong>Phone:</strong> +91 95944 02916<br>
+               <strong>Email:</strong> director@isrc.org.in<br>
+             </p>
+ 
+
+            <div class="social-links">
+              <a href="https://x.com/isrc_org_in" class="twitter"><i class="fa fa-twitter"></i></a>
+              <a href="https://www.facebook.com/people/ISRC/61551801273199" class="facebook"><i class="fa fa-facebook"></i></a>
+              <a href="https://www.instagram.com/isrc.org.in" class="instagram"><i class="fa fa-instagram"></i></a>
+              <a href="mailto:director@isrc.org.in" class="google-plus"><i class="fa fa-google-plus"></i></a>
+              <a href="https://www.linkedin.com/company/isrc-org-in" class="linkedin"><i class="fa fa-linkedin"></i></a>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; <strong> Copyright 2025 All Rights Reserved |</strong>  Developed By – ❤️
+      </div>
+    
+    </div>
+  </footer>
+
+  <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+  <script src="contactform/contactform.js"></script>
+
+  <!-- Template Main Javascript File -->
+  <script src="js/main.js"></script>
+
+  <script>
+   let memberCount = 1;
+const maxMembers = 5;
+
+function addTeamMember() {
+  if (memberCount < maxMembers) {
+    memberCount++;
+    const container = document.getElementById('team-members-container');
+    const memberDiv = document.createElement('div');
+    memberDiv.className = 'form-row team-member';
+    memberDiv.id = 'member' + memberCount;
+    memberDiv.innerHTML = `
+      <div class="form-group">
+        <label for="member${memberCount}-name" class="required-field">Member ${memberCount} Name</label>
+        <input type="text" id="member${memberCount}-name" placeholder="Enter name" required>
+      </div>
+      <div class="form-group">
+        <label for="member${memberCount}-age" class="required-field">Member ${memberCount} Age</label>
+        <input type="number" id="member${memberCount}-age" placeholder="Enter age" required>
+      </div>
+      <div class="form-group">
+        <label for="member${memberCount}-email" class="required-field">Member ${memberCount} Email</label>
+        <input type="email" id="member${memberCount}-email" placeholder="Enter email" required>
+      </div>
+      <div class="form-group">
+        <label for="member${memberCount}-phone" class="required-field">Member ${memberCount} Phone Number</label>
+        <input type="tel" id="member${memberCount}-phone" placeholder="Enter phone number" required>
+      </div>
+      <div class="form-group checkbox-group">
+        <label for="member${memberCount}-captain" class="checkbox-label">Captain</label>
+        <input type="checkbox" id="member${memberCount}-captain" class="captain-checkbox" onchange="ensureSingleCaptain('member${memberCount}')">
+      </div>
+    `;
+    container.appendChild(memberDiv);
+    updateRemoveButton();
+  }
+}
+
+function removeTeamMember() {
+  if (memberCount > 1) {
+    const container = document.getElementById('team-members-container');
+    container.removeChild(container.lastElementChild);
+    memberCount--;
+    updateRemoveButton();
+  }
+}
+
+function ensureSingleCaptain(memberId) {
+  const checkboxes = document.querySelectorAll('.captain-checkbox');
+  checkboxes.forEach((checkbox) => {
+    if (checkbox.id !== memberId + '-captain') {
+      checkbox.checked = false;
+    }
+  });
+}
+
+function updateRemoveButton() {
+  const removeButton = document.querySelector('.btn-remove-member');
+  if (memberCount > 1) {
+    removeButton.style.display = 'inline-block';
+  } else {
+    removeButton.style.display = 'none';
+  }
+}
+
+document.querySelector('.btn-submit').addEventListener('click', (event) => {
+  event.preventDefault();
+  const previewModal = new bootstrap.Modal(document.getElementById('previewModal'));
+  const previewContent = document.getElementById('previewContent');
+  previewContent.innerHTML = generatePreviewContent();
+  previewModal.show();
+});
+
+function generatePreviewContent() {
+  let content = `
+    <h5>General Information</h5>
+    <p><strong>Team Name:</strong> ${document.getElementById('team-name').value}</p>
+    <p><strong>Country:</strong> ${document.getElementById('country').value}</p>
+    <h5>Competition Topic</h5>
+    <p><strong>Topic:</strong> ${document.getElementById('competition-topic').value}</p>
+    <h5>Mentor/Coach Details</h5>
+    <p><strong>Name:</strong> ${document.getElementById('coach-name').value}</p>
+    <p><strong>Age:</strong> ${document.getElementById('coach-age').value}</p>
+    <p><strong>Email:</strong> ${document.getElementById('coach-email').value}</p>
+    <p><strong>Phone Number:</strong> ${document.getElementById('coach-phone').value}</p>
+    <h5>Team Details</h5>
+  `;
+
+  for (let i = 1; i <= memberCount; i++) {
+    content += `
+      <p><strong>Member ${i} Name:</strong> ${document.getElementById('member' + i + '-name').value}</p>
+      <p><strong>Member ${i} Age:</strong> ${document.getElementById('member' + i + '-age').value}</p>
+      <p><strong>Member ${i} Email:</strong> ${document.getElementById('member' + i + '-email').value}</p>
+      <p><strong>Member ${i} Phone Number:</strong> ${document.getElementById('member' + i + '-phone').value}</p>
+      <p><strong>Captain:</strong> ${document.getElementById('member' + i + '-captain').checked ? 'Yes' : 'No'}</p>
+    `;
+  }
+
+  return content;
+}
+
+document.getElementById('confirmRegister').addEventListener('click', () => {
+  // Perform the actual form submission here
+  alert('Form submitted successfully!');
+  const previewModal = bootstrap.Modal.getInstance(document.getElementById('previewModal'));
+  previewModal.hide();
+});
+
+  </script>
+
+
+
+
+
+  <!-- JavaScript Libraries -->
+   <!-- Bootstrap JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.6.0/jspdf.umd.min.js"></script>
+  <script src="lib/jquery/jquery.min.js"></script>
+  <script src="lib/jquery/jquery-migrate.min.js"></script>
+  <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="lib/easing/easing.min.js"></script>
+  <script src="lib/superfish/hoverIntent.js"></script>
+  <script src="lib/superfish/superfish.min.js"></script>
+  <script src="lib/wow/wow.min.js"></script>
+  <script src="lib/venobox/venobox.min.js"></script>
+  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+  <!-- Contact Form JavaScript File -->
+  <script src="contactform/contactform.js"></script>
+
+  <!-- Template Main Javascript File -->
+  <script src="js/main.js"></script>
+</body>
+
+</html>
